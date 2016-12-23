@@ -1,0 +1,16 @@
+{
+  "as": "AS15169 Google Inc.",
+  "city": "Mountain View",
+  "country": "United States",
+  "countryCode": "US",
+  "isp": "Google",
+  "lat": 37.4192,
+  "lon": -122.0574,
+  "org": "Google",
+  "query": "216.58.214.206",
+  "region": "CA",
+  "regionName": "California",
+  "status": "success",
+  "timezone": "America/Los_Angeles",
+  "zip": "94043"
+}

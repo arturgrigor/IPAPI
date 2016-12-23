@@ -1,0 +1,19 @@
+{
+  "as": "AS714 Apple Inc.",
+  "city": "Cupertino",
+  "country": "Estados Unidos",
+  "countryCode": "US",
+  "isp": "Apple",
+  "lat": 37.323,
+  "lon": -122.0322,
+  "mobile": false,
+  "org": "Apple",
+  "proxy": false,
+  "query": "17.172.224.47",
+  "region": "CA",
+  "regionName": "California",
+  "reverse": "applecare.cc",
+  "status": "success",
+  "timezone": "America/Los_Angeles",
+  "zip": "95014"
+}

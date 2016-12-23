@@ -1,0 +1,16 @@
+{
+  "as": "AS714 Apple Inc.",
+  "city": "Cupertino",
+  "country": "United States",
+  "countryCode": "US",
+  "isp": "Apple",
+  "lat": 37.323,
+  "lon": -122.0322,
+  "org": "Apple",
+  "query": "17.178.96.59",
+  "region": "CA",
+  "regionName": "California",
+  "status": "success",
+  "timezone": "America/Los_Angeles",
+  "zip": "95014"
+}

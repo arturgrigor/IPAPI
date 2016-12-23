@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>IPAPI iOS Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>IPAPI iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>IPAPI macOS Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>IPAPI macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>IPAPI tvOS Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>IPAPI tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>IPAPI watchOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FE576B211E0C99E5009D4C46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE576B441E0CACEF009D4C46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE576B531E0CACFD009D4C46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE454001E0BE8DB00D8E707</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE454131E0BF78F00D8E707</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE454201E0BF79E00D8E707</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEE4542D1E0BF7A800D8E707</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
