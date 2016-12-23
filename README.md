@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/arturgrigor/IPAPI.svg?branch=master)](https://travis-ci.org/arturgrigor/IPAPI)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IPAPI.svg)](https://img.shields.io/cocoapods/v/IPAPI.svg)
 [![Platform](https://img.shields.io/cocoapods/p/IPAPI.svg?style=flat)](http://cocoadocs.org/docsets/IPAPIIPAPI)
 [![Twitter](https://img.shields.io/badge/twitter-@arturgrigor-blue.svg?style=flat)](http://twitter.com/arturgrigor)
