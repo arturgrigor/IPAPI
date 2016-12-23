@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE576B531E0CACFD009D4C46"
+               BuildableName = "IPAPI Tests.xctest"
+               BlueprintName = "IPAPI tvOS Tests"
+               ReferencedContainer = "container:IPAPI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FEE454201E0BF79E00D8E707"
+            BuildableName = "IPAPI.framework"
+            BlueprintName = "IPAPI tvOS"
+            ReferencedContainer = "container:IPAPI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

@@ -29,7 +29,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE576B211E0C99E5009D4C46"
+               BuildableName = "IPAPI Tests.xctest"
+               BlueprintName = "IPAPI iOS Tests"
+               ReferencedContainer = "container:IPAPI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FEE454001E0BE8DB00D8E707"
+            BuildableName = "IPAPI.framework"
+            BlueprintName = "IPAPI iOS"
+            ReferencedContainer = "container:IPAPI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
