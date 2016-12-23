@@ -9,20 +9,37 @@ env:
   - MACOS_FRAMEWORK_SCHEME="IPAPI macOS"
   - TVOS_FRAMEWORK_SCHEME="IPAPI tvOS"
   - WATCHOS_FRAMEWORK_SCHEME="IPAPI watchOS"
+  matrix:
+    - DESTINATION="OS=3.0,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  POD_LINT="NO"
+    - DESTINATION="OS=2.0,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  POD_LINT="NO"
+
+    - DESTINATION="OS=10.0,name=iPhone 7 Plus"     SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" POD_LINT="YES"
+    - DESTINATION="OS=9.0,name=iPad 2"             SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" POD_LINT="NO"
+    - DESTINATION="OS=8.1,name=iPhone 4S"          SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" POD_LINT="NO"
+
+    - DESTINATION="OS=10.0,name=Apple TV 1080p"    SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" POD_LINT="NO"
+    - DESTINATION="OS=9.0,name=Apple TV 1080p"     SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" POD_LINT="NO"
+
+    - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"   RUN_TESTS="YES" POD_LINT="NO"
 script:
   - set -o pipefail
   - xcodebuild -version
 
-  # Builds
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "platform=iOS Simulator,name=iPhone 6" build | xcpretty;
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$MACOS_FRAMEWORK_SCHEME" build | xcpretty;
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$TVOS_FRAMEWORK_SCHEME" -destination "platform=tvOS Simulator,name=Apple TV 1080p" build | xcpretty;
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$WATCHOS_FRAMEWORK_SCHEME" -destination "platform=watchOS Simulator,name=Apple Watch - 42mm" build | xcpretty;
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build-for-testing test | xcpretty;
+    else
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
 
-  # Tests
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "platform=iOS Simulator,name=iPhone 6" build-for-testing test | xcpretty;
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$MACOS_FRAMEWORK_SCHEME" build-for-testing test | xcpretty;
-  - travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$TVOS_FRAMEWORK_SCHEME" -destination "platform=tvOS Simulator,name=Apple TV 1080p" build-for-testing test | xcpretty;
+  # Build Framework in Release and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build-for-testing test | xcpretty;
+    else
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
 
-  # Run `pod lib lint`
-  - pod lib lint;
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
