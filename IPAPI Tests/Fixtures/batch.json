@@ -1,0 +1,23 @@
+[{
+    "country": "United States",
+    "countryCode": "US",
+    "lat": 37.7898,
+    "lon": -122.3942,
+    "org": "Wikimedia Foundation",
+    "query": "208.80.152.201"
+}, {
+    "as": "AS43821 WIKIMEDIA-EU",
+    "city": "Amsterdam",
+    "country": "Holanda",
+    "countryCode": "NL",
+    "isp": "Wikimedia-eu",
+    "lat": 52.3702,
+    "lon": 4.89517,
+    "org": "Wikimedia-eu",
+    "query": "91.198.174.192",
+    "region": "NH",
+    "regionName": "Holanda Septentrional",
+    "status": "success",
+    "timezone": "Europe/Amsterdam",
+    "zip": ""
+}]

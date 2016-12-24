@@ -174,6 +174,55 @@ class IPAPI_Tests: XCTestCase
         }
     }
     
+    func testBatch()
+    {
+        self.stub(urlString: "/batch", jsonFileName: "batch")
+        
+        var result: [Service.Result]?
+        var error: Error?
+        let responseArrived = self.expectation(description: "Response of async request has arrived")
+        
+        Service.default.batch([Service.Request(query: "208.80.152.201",
+                                               fields: [.countryName, .countryCode, .latitude, .longitude, .organization, .ip]),
+                               Service.Request(query: "91.198.174.192", language: "es")]) { r, e in
+            result = r
+            error = e
+            responseArrived.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 15) { inError in
+            XCTAssertNotNil(result, "Result should not be nil.")
+            XCTAssertNil(error, "Error should be nil.")
+            
+            XCTAssertTrue(result?.count == 2)
+            
+            let firstResult = result?[0]
+            let secondResult = result?[1]
+            
+            XCTAssertEqual(firstResult?.countryName, "United States")
+            XCTAssertEqual(firstResult?.countryCode, "US")
+            XCTAssertEqual(firstResult?.latitude, 37.7898)
+            XCTAssertEqual(firstResult?.longitude, -122.3942)
+            XCTAssertEqual(firstResult?.organization, "Wikimedia Foundation")
+            XCTAssertEqual(firstResult?.ip, "208.80.152.201")
+            
+            XCTAssertEqual(secondResult?.as, "AS43821 WIKIMEDIA-EU")
+            XCTAssertEqual(secondResult?.city, "Amsterdam")
+            XCTAssertEqual(secondResult?.countryName, "Holanda")
+            XCTAssertEqual(secondResult?.countryCode, "NL")
+            XCTAssertEqual(secondResult?.isp, "Wikimedia-eu")
+            XCTAssertEqual(secondResult?.latitude, 52.3702)
+            XCTAssertEqual(secondResult?.longitude, 4.89517)
+            XCTAssertEqual(secondResult?.organization, "Wikimedia-eu")
+            XCTAssertEqual(secondResult?.ip, "91.198.174.192")
+            XCTAssertEqual(secondResult?.regionCode, "NH")
+            XCTAssertEqual(secondResult?.regionName, "Holanda Septentrional")
+            XCTAssertEqual(secondResult?.status, .success)
+            XCTAssertEqual(secondResult?.timezone, "Europe/Amsterdam")
+            XCTAssertEqual(secondResult?.zipCode, "")
+        }
+    }
+    
     func testFailed()
     {
         self.stub(urlString: "/json/failed.lookup", jsonFileName: "failed")

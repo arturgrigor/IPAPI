@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		357A43CF163492F2A5DCDDBA /* Pods_Tests_IPAPI_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC83AA2DC3CFA0E06F18F88D /* Pods_Tests_IPAPI_macOS_Tests.framework */; };
 		EE0E49FA36C3131A4F9A23D2 /* Pods_Tests_IPAPI_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91682B83B8A954E00AE72A5 /* Pods_Tests_IPAPI_iOS_Tests.framework */; };
+		FE38C1581E0DFA0700D2DF39 /* batch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE38C1571E0DFA0700D2DF39 /* batch.json */; };
 		FE576B271E0C99E5009D4C46 /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454011E0BE8DB00D8E707 /* IPAPI.framework */; };
 		FE576B311E0C99FC009D4C46 /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */; };
 		FE576B341E0C9EE1009D4C46 /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B321E0C9EDF009D4C46 /* XCTest+Helpers.swift */; };
@@ -75,6 +76,7 @@
 		E93E0E0D146D1485FFD54871 /* Pods-Tests-IPAPI iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IPAPI iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-IPAPI iOS Tests/Pods-Tests-IPAPI iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FA583E1735BAE3EC8AB8C476 /* Pods-Tests-IPAPI macOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IPAPI macOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-IPAPI macOS Tests/Pods-Tests-IPAPI macOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC83AA2DC3CFA0E06F18F88D /* Pods_Tests_IPAPI_macOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_IPAPI_macOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE38C1571E0DFA0700D2DF39 /* batch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = batch.json; sourceTree = "<group>"; };
 		FE576B221E0C99E5009D4C46 /* IPAPI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IPAPI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE576B2E1E0C99FC009D4C46 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAPI_Tests.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				FE576B391E0CA863009D4C46 /* apple.json */,
 				FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */,
 				FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */,
+				FE38C1571E0DFA0700D2DF39 /* batch.json */,
 				FE576B361E0CA174009D4C46 /* currentIp.json */,
 				FE576B3F1E0CAC4A009D4C46 /* failed.json */,
 			);
@@ -514,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE38C1581E0DFA0700D2DF39 /* batch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

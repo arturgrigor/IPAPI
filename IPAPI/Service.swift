@@ -25,46 +25,97 @@ open class Service
     
     // MARK: - Types -
     
+    /// This is the error type returned by IPAPI.
     public enum Error: Swift.Error
     {
+        /// Returned when the `URLComponents` structure fails to initialize, most likely because of the `query` parameter.
         case invalidURL
+        
+        /// Return when the `URLComponents` structure fails to create a valid `URL`.
         case malformedURL
-        case invalidData
+        
+        /// Returned when the request data is invalid.
+        case invalidRequestData
+        
+        /// Returned when the server response contained invalid data.
+        case invalidResponseData
     }
     
+    /// This is the status type returned by IPAPI.
     public enum Status: String
     {
+        /// Returned when the server is unable to process the request.
         case fail
+        
+        /// Returned when the request has succeeded.
         case success
     }
     
+    /// This is the field type used by the IPAPI service to filter out unnecessary data.
     public enum Field: String
     {
+        /// AS number and name.
         case `as` = "as"
+        
+        /// City.
         case city
+        
+        /// Country code short.
         case countryCode
+        
+        /// Country name.
         case countryName = "country"
+        
+        /// IP.
         case ip = "query"
+        
+        /// Internet Service Provider name.
         case isp
+        
+        /// Latitude.
         case latitude = "lat"
+        
+        /// Longitude.
         case longitude = "lon"
+        
+        /// Error message.
         case message
+        
+        /// Mobile (cellular) connection.
         case mobile
+        
+        /// Organization name.
         case organization = "org"
+        
+        /// Proxy (anonymous).
         case proxy
+        
+        /// Region/State code short.
         case regionCode = "region"
+        
+        /// Region/State name.
         case regionName
+        
+        /// Reverse DNS of the IP.
         case reverse
+        
+        /// Status.
         case status
+        
+        /// Timezone.
         case timezone
+        
+        /// Zip code.
         case zipCode = "zip"
         
+        /// Returns an `Array` with all the fields.
         public static var all: [Field] {
             return [.`as`, .city, .countryCode, .countryName, .ip, .isp, .latitude, .longitude, .message, .mobile,
                     .organization, .proxy, .regionCode, .regionName, .reverse, .status, .timezone, .zipCode]
         }
     }
     
+    /// This is the result type returned by IPAPI.
     public struct Result
     {
         /// AS number and name, separated by space. Example: `"AS15169 Google Inc."`
@@ -122,6 +173,43 @@ open class Service
         public var zipCode: String?
     }
     
+    /// This is the request type used by the `batch` method.
+    public struct Request
+    {
+        /// The IP address to lookup. This parameter is required.
+        public var query: String
+        
+        /// If you don't require all the returned fields use this property to specify which fields to return. *Tip: Disabling* `reverse` *may improve performance*. This parameter is optional.
+        public var fields: [Field]? = nil
+        
+        /// Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format. This parameter is optional.
+        public var language: String? = nil
+        
+        // MARK: - Initialization -
+        
+        /// Initializes the `Request` instance with the given parameters.
+        ///
+        /// - Parameters:
+        ///   - query: The IP address to lookup.
+        ///   - fields: The fields to return.
+        ///   - language: The language to use for the city, region and country names.
+        ///
+        /// - Returns: The new `Request` instance.
+        init(query: String, fields: [Field]? = nil, language: String? = nil) {
+            self.query = query
+            self.fields = fields
+            self.language = language
+        }
+    }
+    
+    /// This is the typical JSON type used by webservices.
+    public typealias JSON = [String: AnyObject]
+    
+    // MARK: - Constants -
+    
+    /// The base URL string for the webservice.
+    static let baseURLString = "http://ip-api.com"
+    
     // MARK: - Properties -
     
     /// Returns the timeout interval of the receiver.
@@ -155,13 +243,13 @@ open class Service
     ///
     /// - Parameters:
     ///   - query: The IP address or domain to lookup. Use `nil` to lookup the current IP address.
-    ///   - fields: If you don't require all the returned fields use this property to specify which fields to return.
+    ///   - fields: If you don't require all the returned fields use this property to specify which fields to return. *Tip: Disabling* `reverse` *may improve performance*.
     ///   - language: Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
     @discardableResult open func fetch(query: String? = nil, fields: [Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
     {
-        var urlString = "http://ip-api.com/json"
+        var urlString = "\(type(of: self).baseURLString)/json"
         if let query = query {
             urlString += "/\(query)"
         }
@@ -195,11 +283,61 @@ open class Service
             if let error = error {
                 completion?(nil, error)
             } else {
-                if let data = data, let object = try? JSONSerialization.jsonObject(with: data, options: []), let json = object as? Result.JSON {
+                if let data = data, let object = try? JSONSerialization.jsonObject(with: data, options: []), let json = object as? JSON {
                     let result = Result(json: json)
                     completion?(result, nil)
                 } else {
-                    completion?(nil, Error.invalidData)
+                    completion?(nil, Error.invalidResponseData)
+                }
+            }
+        })
+        task.resume()
+        
+        return task
+    }
+    
+    /// Lookup multiple IP addresses in one request. You can supply up to `100` queries per batch request.
+    ///
+    /// - Note: This mode does not support hostname/domain or rDNS lookups.
+    ///
+    /// - Parameters:
+    ///   - queries: The requests.
+    ///   - completion: A closure that will be called upon completion.
+    /// - Returns: The new `URLSessionDataTask` instance.
+    @discardableResult open func batch(_ queries: [Request], completion: ((_ result: [Result]?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
+    {
+        let urlString = "\(type(of: self).baseURLString)/batch"
+        guard let urlComponents = URLComponents(string: urlString) else {
+            completion?(nil, Error.invalidURL)
+            return nil
+        }
+        
+        guard let url = urlComponents.url else {
+            completion?(nil, Error.malformedURL)
+            return nil
+        }
+        
+        let body = queries.map { $0.toJSON() }
+        guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
+            completion?(nil, Error.invalidRequestData)
+            return nil
+        }
+        
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: self.timeoutInterval)
+        request.httpMethod = "POST"
+        request.httpBody = jsonBody
+        let config = self.configuration
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            if let error = error {
+                completion?(nil, error)
+            } else {
+                if let data = data, let object = try? JSONSerialization.jsonObject(with: data, options: []), let json = object as? [JSON] {
+                    let result = json.flatMap { Result(json: $0) }
+                    completion?(result, nil)
+                } else {
+                    completion?(nil, Error.invalidResponseData)
                 }
             }
         })
@@ -211,19 +349,21 @@ open class Service
 }
 
 //
-//  # JSON Extension
+//  # Result: JSON Extension
 //
 
 public extension Service.Result
 {
     
-    // MARK: - Types -
-    
-    typealias JSON = [String: AnyObject]
-    
     // MARK: - Deserialization -
     
-    init?(json: JSON)
+    /// Initializes the `Result` instance with a given JSON object.
+    ///
+    /// - Parameters:
+    ///   - json: The JSON object.
+    ///
+    /// - Returns: The new `Result` instance.
+    init?(json: Service.JSON)
     {
         let statusString = json[Service.Field.status.rawValue] as? String
         
@@ -252,9 +392,10 @@ public extension Service.Result
     
     // MARK: - Serialization -
     
-    func toJSON() -> JSON
+    /// Serializes the object to the IPAPI format.
+    func toJSON() -> Service.JSON
     {
-        var ret: JSON = [:]
+        var ret: Service.JSON = [:]
         
         ret[Service.Field.`as`.rawValue]            = self.`as` as AnyObject?
         ret[Service.Field.city.rawValue]            = self.city as AnyObject?
@@ -281,12 +422,73 @@ public extension Service.Result
 }
 
 //
+//  # Request: JSON Extension
+//
+
+public extension Service.Request
+{
+    
+    // MARK: - Types -
+    
+    fileprivate enum JSONKey: String
+    {
+        /// Query.
+        case query
+        
+        /// Fields.
+        case fields
+        
+        /// Language.
+        case language = "lang"
+    }
+    
+    // MARK: - Deserialization -
+    
+    /// Initializes the `Request` instance with a given JSON object.
+    ///
+    /// - Parameters:
+    ///   - json: The JSON object.
+    ///
+    /// - Returns: The new `Result` instance.
+    init?(json: Service.JSON)
+    {
+        if let query = json[Service.Request.JSONKey.query.rawValue] as? String {
+            self.query      = query
+            self.language   = json[Service.Request.JSONKey.language.rawValue] as? String
+            
+            if let string = json[Service.Request.JSONKey.fields.rawValue] as? String {
+                let fields = string.components(separatedBy: ",")
+                self.fields = fields.flatMap { Service.Field(rawValue: $0) }
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - Serialization -
+    
+    /// Serializes the object to the IPAPI format.
+    func toJSON() -> Service.JSON
+    {
+        var ret: Service.JSON = [:]
+        
+        ret[Service.Request.JSONKey.query.rawValue]     = self.query as AnyObject?
+        ret[Service.Request.JSONKey.fields.rawValue]    = self.fields?.map { $0.rawValue }.joined(separator: ",") as AnyObject?
+        ret[Service.Request.JSONKey.language.rawValue]  = self.language as AnyObject?
+        
+        return ret
+    }
+    
+}
+
+//
 //  # Debug Extension
 //
 
 public extension Service.Result
 {
     
+    /// The textual representation of the receiver, in the form of JSON.
     var description: String {
         return self.toJSON().description
     }
