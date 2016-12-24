@@ -33,7 +33,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'IPAPI', '~> 1.0'
+    pod 'IPAPI', '~> 1.1'
 end
 ```
 
@@ -45,7 +45,7 @@ $ pod install
 
 ## Usage
 
-### Lookup the current IP address ###
+### 🎯 Lookup the current IP address ###
 
 ```swift
 import IPAPI
@@ -57,7 +57,7 @@ IPAPI.Service.default.fetch { result, error in
         }
 ```
 
-### Lookup a domain ###
+### 🔍 Lookup a domain ###
 
 ```swift
 import IPAPI
@@ -69,7 +69,7 @@ Service.default.fetch(query: "apple.com") { result, error in
         }
 ```
 
-### Ask only for some specific fields ###
+### ✂️ Ask only for some specific fields ###
 
 ```swift
 import IPAPI
@@ -81,7 +81,7 @@ Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) { res
         }
 ```
 
-### Localization ###
+### 🇷🇴 Localization ###
 
 ```swift
 import IPAPI
@@ -93,6 +93,20 @@ Service.default.fetch(language: "es") { result, error in
         }
 ```
 *Checkout this [page](http://ip-api.com/docs/api:returned_values) for the available languages.
+
+### 📦 Batch request ###
+
+```swift
+import IPAPI
+
+Service.default.batch([Service.Request(query: "208.80.152.201",
+                                       fields: [.countryName, .countryCode, .latitude, .longitude, .organization, .ip]),
+                       Service.Request(query: "91.198.174.192", language: "es")]) { result, error in
+            if let result = result {
+                print("Geo IP result \(result).")
+            }
+        }
+```
 
 # Contact
 
