@@ -9,40 +9,44 @@
 /* Begin PBXBuildFile section */
 		357A43CF163492F2A5DCDDBA /* Pods_Tests_IPAPI_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC83AA2DC3CFA0E06F18F88D /* Pods_Tests_IPAPI_macOS_Tests.framework */; };
 		EE0E49FA36C3131A4F9A23D2 /* Pods_Tests_IPAPI_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91682B83B8A954E00AE72A5 /* Pods_Tests_IPAPI_iOS_Tests.framework */; };
-		FE38C1581E0DFA0700D2DF39 /* batch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE38C1571E0DFA0700D2DF39 /* batch.json */; };
 		FE576B271E0C99E5009D4C46 /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454011E0BE8DB00D8E707 /* IPAPI.framework */; };
-		FE576B311E0C99FC009D4C46 /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */; };
-		FE576B341E0C9EE1009D4C46 /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B321E0C9EDF009D4C46 /* XCTest+Helpers.swift */; };
-		FE576B371E0CA174009D4C46 /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B361E0CA174009D4C46 /* currentIp.json */; };
-		FE576B381E0CA233009D4C46 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FE576B3A1E0CA863009D4C46 /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B391E0CA863009D4C46 /* apple.json */; };
-		FE576B3C1E0CA926009D4C46 /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */; };
-		FE576B3E1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */; };
-		FE576B401E0CAC4A009D4C46 /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3F1E0CAC4A009D4C46 /* failed.json */; };
 		FE576B4A1E0CACEF009D4C46 /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454141E0BF78F00D8E707 /* IPAPI.framework */; };
 		FE576B591E0CACFD009D4C46 /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454211E0BF79E00D8E707 /* IPAPI.framework */; };
-		FE576B5F1E0CAD3A009D4C46 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FE576B601E0CAD3B009D4C46 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FE576B611E0CAD41009D4C46 /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */; };
-		FE576B621E0CAD41009D4C46 /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE576B321E0C9EDF009D4C46 /* XCTest+Helpers.swift */; };
-		FE576B651E0CAD51009D4C46 /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B391E0CA863009D4C46 /* apple.json */; };
-		FE576B661E0CAD51009D4C46 /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */; };
-		FE576B671E0CAD51009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */; };
-		FE576B681E0CAD51009D4C46 /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B361E0CA174009D4C46 /* currentIp.json */; };
-		FE576B691E0CAD51009D4C46 /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3F1E0CAC4A009D4C46 /* failed.json */; };
-		FE576B6A1E0CAD51009D4C46 /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B391E0CA863009D4C46 /* apple.json */; };
-		FE576B6B1E0CAD51009D4C46 /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */; };
-		FE576B6C1E0CAD51009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */; };
-		FE576B6D1E0CAD51009D4C46 /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B361E0CA174009D4C46 /* currentIp.json */; };
-		FE576B6E1E0CAD51009D4C46 /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE576B3F1E0CAC4A009D4C46 /* failed.json */; };
-		FEE454061E0BE8DB00D8E707 /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE454041E0BE8DB00D8E707 /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEE4540E1E0BEA1000D8E707 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FEE454361E0BF85000D8E707 /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE454041E0BE8DB00D8E707 /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEE454371E0BF85200D8E707 /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE454041E0BE8DB00D8E707 /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEE454381E0BF85400D8E707 /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE454041E0BE8DB00D8E707 /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEE454391E0BF85A00D8E707 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FEE4543A1E0BF85A00D8E707 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
-		FEE4543B1E0BF85A00D8E707 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE4540D1E0BEA1000D8E707 /* Service.swift */; };
+		FE97617A1E8FBB57006F1F9D /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FE97616D1E8FBB52006F1F9D /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE97617B1E8FBB57006F1F9D /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FE97616D1E8FBB52006F1F9D /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE97617C1E8FBB58006F1F9D /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FE97616D1E8FBB52006F1F9D /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE97617D1E8FBB58006F1F9D /* IPAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = FE97616D1E8FBB52006F1F9D /* IPAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE97617E1E8FBB60006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761801E8FBB61006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761821E8FBB61006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761841E8FBB62006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761871E8FBBE3006F1F9D /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */; };
+		FE9761881E8FBBE3006F1F9D /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761791E8FBB52006F1F9D /* XCTest+Helpers.swift */; };
+		FE9761891E8FBBE4006F1F9D /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */; };
+		FE97618A1E8FBBE4006F1F9D /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761791E8FBB52006F1F9D /* XCTest+Helpers.swift */; };
+		FE97618B1E8FBBE5006F1F9D /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */; };
+		FE97618C1E8FBBE5006F1F9D /* XCTest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761791E8FBB52006F1F9D /* XCTest+Helpers.swift */; };
+		FE97618D1E8FBBE9006F1F9D /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761711E8FBB52006F1F9D /* apple.json */; };
+		FE97618E1E8FBBE9006F1F9D /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761721E8FBB52006F1F9D /* appleWithAllFields.json */; };
+		FE97618F1E8FBBE9006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761731E8FBB52006F1F9D /* appleWithAllFieldsInSpanish.json */; };
+		FE9761901E8FBBE9006F1F9D /* batch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761741E8FBB52006F1F9D /* batch.json */; };
+		FE9761911E8FBBE9006F1F9D /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761751E8FBB52006F1F9D /* currentIp.json */; };
+		FE9761921E8FBBE9006F1F9D /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761761E8FBB52006F1F9D /* failed.json */; };
+		FE9761931E8FBBEA006F1F9D /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761711E8FBB52006F1F9D /* apple.json */; };
+		FE9761941E8FBBEA006F1F9D /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761721E8FBB52006F1F9D /* appleWithAllFields.json */; };
+		FE9761951E8FBBEA006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761731E8FBB52006F1F9D /* appleWithAllFieldsInSpanish.json */; };
+		FE9761961E8FBBEA006F1F9D /* batch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761741E8FBB52006F1F9D /* batch.json */; };
+		FE9761971E8FBBEA006F1F9D /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761751E8FBB52006F1F9D /* currentIp.json */; };
+		FE9761981E8FBBEA006F1F9D /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761761E8FBB52006F1F9D /* failed.json */; };
+		FE9761991E8FBBEA006F1F9D /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761711E8FBB52006F1F9D /* apple.json */; };
+		FE97619A1E8FBBEA006F1F9D /* appleWithAllFields.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761721E8FBB52006F1F9D /* appleWithAllFields.json */; };
+		FE97619B1E8FBBEA006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761731E8FBB52006F1F9D /* appleWithAllFieldsInSpanish.json */; };
+		FE97619C1E8FBBEA006F1F9D /* batch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761741E8FBB52006F1F9D /* batch.json */; };
+		FE97619D1E8FBBEA006F1F9D /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761751E8FBB52006F1F9D /* currentIp.json */; };
+		FE97619E1E8FBBEA006F1F9D /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761761E8FBB52006F1F9D /* failed.json */; };
+		FE97619F1E8FBBF9006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761A01E8FBBF9006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FE9761A11E8FBBFA006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,26 +80,27 @@
 		E93E0E0D146D1485FFD54871 /* Pods-Tests-IPAPI iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IPAPI iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-IPAPI iOS Tests/Pods-Tests-IPAPI iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FA583E1735BAE3EC8AB8C476 /* Pods-Tests-IPAPI macOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-IPAPI macOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-IPAPI macOS Tests/Pods-Tests-IPAPI macOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC83AA2DC3CFA0E06F18F88D /* Pods_Tests_IPAPI_macOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_IPAPI_macOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE38C1571E0DFA0700D2DF39 /* batch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = batch.json; sourceTree = "<group>"; };
 		FE576B221E0C99E5009D4C46 /* IPAPI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IPAPI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE576B2E1E0C99FC009D4C46 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAPI_Tests.swift; sourceTree = "<group>"; };
-		FE576B321E0C9EDF009D4C46 /* XCTest+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTest+Helpers.swift"; sourceTree = "<group>"; };
-		FE576B361E0CA174009D4C46 /* currentIp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currentIp.json; sourceTree = "<group>"; };
-		FE576B391E0CA863009D4C46 /* apple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple.json; sourceTree = "<group>"; };
-		FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = appleWithAllFields.json; sourceTree = "<group>"; };
-		FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = appleWithAllFieldsInSpanish.json; sourceTree = "<group>"; };
-		FE576B3F1E0CAC4A009D4C46 /* failed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = failed.json; sourceTree = "<group>"; };
 		FE576B451E0CACEF009D4C46 /* IPAPI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IPAPI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE576B541E0CACFD009D4C46 /* IPAPI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IPAPI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE576B6F1E0CAD84009D4C46 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FE7C0C9B1E0CB16D00620172 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FE7C0C9C1E0CB16D00620172 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FE97616C1E8FBB52006F1F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE97616D1E8FBB52006F1F9D /* IPAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPAPI.h; sourceTree = "<group>"; };
+		FE97616E1E8FBB52006F1F9D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FE9761711E8FBB52006F1F9D /* apple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apple.json; sourceTree = "<group>"; };
+		FE9761721E8FBB52006F1F9D /* appleWithAllFields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = appleWithAllFields.json; sourceTree = "<group>"; };
+		FE9761731E8FBB52006F1F9D /* appleWithAllFieldsInSpanish.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = appleWithAllFieldsInSpanish.json; sourceTree = "<group>"; };
+		FE9761741E8FBB52006F1F9D /* batch.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = batch.json; sourceTree = "<group>"; };
+		FE9761751E8FBB52006F1F9D /* currentIp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currentIp.json; sourceTree = "<group>"; };
+		FE9761761E8FBB52006F1F9D /* failed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = failed.json; sourceTree = "<group>"; };
+		FE9761771E8FBB52006F1F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAPI_Tests.swift; sourceTree = "<group>"; };
+		FE9761791E8FBB52006F1F9D /* XCTest+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Helpers.swift"; sourceTree = "<group>"; };
+		FE9761A21E8FBD45006F1F9D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		FEE454011E0BE8DB00D8E707 /* IPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEE454041E0BE8DB00D8E707 /* IPAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPAPI.h; sourceTree = "<group>"; };
-		FEE454051E0BE8DB00D8E707 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEE4540C1E0BE96600D8E707 /* IPAPI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = IPAPI.podspec; sourceTree = "<group>"; };
-		FEE4540D1E0BEA1000D8E707 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FEE454141E0BF78F00D8E707 /* IPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE454211E0BF79E00D8E707 /* IPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE4542E1E0BF7A800D8E707 /* IPAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IPAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,26 +184,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FE576B2D1E0C99FC009D4C46 /* IPAPI Tests */ = {
+		FE97616B1E8FBB52006F1F9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FE576B351E0CA174009D4C46 /* Fixtures */,
-				FE576B2E1E0C99FC009D4C46 /* Info.plist */,
-				FE576B2F1E0C99FC009D4C46 /* IPAPI_Tests.swift */,
-				FE576B321E0C9EDF009D4C46 /* XCTest+Helpers.swift */,
+				FE97616C1E8FBB52006F1F9D /* Info.plist */,
+				FE97616D1E8FBB52006F1F9D /* IPAPI.h */,
+				FE97616E1E8FBB52006F1F9D /* Service.swift */,
 			);
-			path = "IPAPI Tests";
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		FE576B351E0CA174009D4C46 /* Fixtures */ = {
+		FE97616F1E8FBB52006F1F9D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FE576B391E0CA863009D4C46 /* apple.json */,
-				FE576B3B1E0CA926009D4C46 /* appleWithAllFields.json */,
-				FE576B3D1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json */,
-				FE38C1571E0DFA0700D2DF39 /* batch.json */,
-				FE576B361E0CA174009D4C46 /* currentIp.json */,
-				FE576B3F1E0CAC4A009D4C46 /* failed.json */,
+				FE9761701E8FBB52006F1F9D /* Fixtures */,
+				FE9761771E8FBB52006F1F9D /* Info.plist */,
+				FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */,
+				FE9761791E8FBB52006F1F9D /* XCTest+Helpers.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		FE9761701E8FBB52006F1F9D /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				FE9761711E8FBB52006F1F9D /* apple.json */,
+				FE9761721E8FBB52006F1F9D /* appleWithAllFields.json */,
+				FE9761731E8FBB52006F1F9D /* appleWithAllFieldsInSpanish.json */,
+				FE9761741E8FBB52006F1F9D /* batch.json */,
+				FE9761751E8FBB52006F1F9D /* currentIp.json */,
+				FE9761761E8FBB52006F1F9D /* failed.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -208,10 +223,11 @@
 			children = (
 				FE576B6F1E0CAD84009D4C46 /* Podfile */,
 				FEE4540C1E0BE96600D8E707 /* IPAPI.podspec */,
+				FE9761A21E8FBD45006F1F9D /* Package.swift */,
 				FE7C0C9B1E0CB16D00620172 /* LICENSE */,
 				FE7C0C9C1E0CB16D00620172 /* README.md */,
-				FEE454031E0BE8DB00D8E707 /* IPAPI */,
-				FE576B2D1E0C99FC009D4C46 /* IPAPI Tests */,
+				FE97616B1E8FBB52006F1F9D /* Sources */,
+				FE97616F1E8FBB52006F1F9D /* Tests */,
 				FEE454021E0BE8DB00D8E707 /* Products */,
 				B63FE370E19B5BAC9CB24F2A /* Pods */,
 				604545D41A5979265DCDFCF2 /* Frameworks */,
@@ -232,16 +248,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FEE454031E0BE8DB00D8E707 /* IPAPI */ = {
-			isa = PBXGroup;
-			children = (
-				FEE454041E0BE8DB00D8E707 /* IPAPI.h */,
-				FEE454051E0BE8DB00D8E707 /* Info.plist */,
-				FEE4540D1E0BEA1000D8E707 /* Service.swift */,
-			);
-			path = IPAPI;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -249,7 +255,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE454061E0BE8DB00D8E707 /* IPAPI.h in Headers */,
+				FE97617A1E8FBB57006F1F9D /* IPAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +263,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE454361E0BF85000D8E707 /* IPAPI.h in Headers */,
+				FE97617B1E8FBB57006F1F9D /* IPAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +271,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE454371E0BF85200D8E707 /* IPAPI.h in Headers */,
+				FE97617C1E8FBB58006F1F9D /* IPAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +279,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE454381E0BF85400D8E707 /* IPAPI.h in Headers */,
+				FE97617D1E8FBB58006F1F9D /* IPAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Artur Grigor";
 				TargetAttributes = {
 					FE576B211E0C99E5009D4C46 = {
@@ -481,11 +487,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B371E0CA174009D4C46 /* currentIp.json in Resources */,
-				FE576B3C1E0CA926009D4C46 /* appleWithAllFields.json in Resources */,
-				FE576B3E1E0CABBC009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */,
-				FE576B3A1E0CA863009D4C46 /* apple.json in Resources */,
-				FE576B401E0CAC4A009D4C46 /* failed.json in Resources */,
+				FE9761901E8FBBE9006F1F9D /* batch.json in Resources */,
+				FE97618D1E8FBBE9006F1F9D /* apple.json in Resources */,
+				FE97618F1E8FBBE9006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */,
+				FE97618E1E8FBBE9006F1F9D /* appleWithAllFields.json in Resources */,
+				FE9761921E8FBBE9006F1F9D /* failed.json in Resources */,
+				FE9761911E8FBBE9006F1F9D /* currentIp.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,11 +500,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B651E0CAD51009D4C46 /* apple.json in Resources */,
-				FE576B671E0CAD51009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */,
-				FE576B681E0CAD51009D4C46 /* currentIp.json in Resources */,
-				FE576B661E0CAD51009D4C46 /* appleWithAllFields.json in Resources */,
-				FE576B691E0CAD51009D4C46 /* failed.json in Resources */,
+				FE9761961E8FBBEA006F1F9D /* batch.json in Resources */,
+				FE9761931E8FBBEA006F1F9D /* apple.json in Resources */,
+				FE9761951E8FBBEA006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */,
+				FE9761941E8FBBEA006F1F9D /* appleWithAllFields.json in Resources */,
+				FE9761981E8FBBEA006F1F9D /* failed.json in Resources */,
+				FE9761971E8FBBEA006F1F9D /* currentIp.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,11 +513,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B6A1E0CAD51009D4C46 /* apple.json in Resources */,
-				FE576B6C1E0CAD51009D4C46 /* appleWithAllFieldsInSpanish.json in Resources */,
-				FE576B6D1E0CAD51009D4C46 /* currentIp.json in Resources */,
-				FE576B6B1E0CAD51009D4C46 /* appleWithAllFields.json in Resources */,
-				FE576B6E1E0CAD51009D4C46 /* failed.json in Resources */,
+				FE97619C1E8FBBEA006F1F9D /* batch.json in Resources */,
+				FE9761991E8FBBEA006F1F9D /* apple.json in Resources */,
+				FE97619B1E8FBBEA006F1F9D /* appleWithAllFieldsInSpanish.json in Resources */,
+				FE97619A1E8FBBEA006F1F9D /* appleWithAllFields.json in Resources */,
+				FE97619E1E8FBBEA006F1F9D /* failed.json in Resources */,
+				FE97619D1E8FBBEA006F1F9D /* currentIp.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +526,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE38C1581E0DFA0700D2DF39 /* batch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,9 +650,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B341E0C9EE1009D4C46 /* XCTest+Helpers.swift in Sources */,
-				FE576B311E0C99FC009D4C46 /* IPAPI_Tests.swift in Sources */,
-				FE576B381E0CA233009D4C46 /* Service.swift in Sources */,
+				FE9761881E8FBBE3006F1F9D /* XCTest+Helpers.swift in Sources */,
+				FE9761871E8FBBE3006F1F9D /* IPAPI_Tests.swift in Sources */,
+				FE97619F1E8FBBF9006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,9 +660,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B5F1E0CAD3A009D4C46 /* Service.swift in Sources */,
-				FE576B611E0CAD41009D4C46 /* IPAPI_Tests.swift in Sources */,
-				FE576B621E0CAD41009D4C46 /* XCTest+Helpers.swift in Sources */,
+				FE97618A1E8FBBE4006F1F9D /* XCTest+Helpers.swift in Sources */,
+				FE9761891E8FBBE4006F1F9D /* IPAPI_Tests.swift in Sources */,
+				FE9761A01E8FBBF9006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,7 +670,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE576B601E0CAD3B009D4C46 /* Service.swift in Sources */,
+				FE97618C1E8FBBE5006F1F9D /* XCTest+Helpers.swift in Sources */,
+				FE97618B1E8FBBE5006F1F9D /* IPAPI_Tests.swift in Sources */,
+				FE9761A11E8FBBFA006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,7 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE4540E1E0BEA1000D8E707 /* Service.swift in Sources */,
+				FE97617E1E8FBB60006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE454391E0BF85A00D8E707 /* Service.swift in Sources */,
+				FE9761801E8FBB61006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE4543A1E0BF85A00D8E707 /* Service.swift in Sources */,
+				FE9761821E8FBB61006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEE4543B1E0BF85A00D8E707 /* Service.swift in Sources */,
+				FE9761841E8FBB62006F1F9D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,7 +733,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 65BA13B2A5E4C6C2743220FD /* Pods-Tests-IPAPI iOS Tests.debug.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
@@ -735,7 +746,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E93E0E0D146D1485FFD54871 /* Pods-Tests-IPAPI iOS Tests.release.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
@@ -747,9 +759,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA583E1735BAE3EC8AB8C476 /* Pods-Tests-IPAPI macOS Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
@@ -763,9 +776,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D48DD1FC221C34335F193E9 /* Pods-Tests-IPAPI macOS Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
@@ -778,7 +792,8 @@
 		FE576B5D1E0CACFD009D4C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
@@ -791,7 +806,8 @@
 		FE576B5E1E0CACFD009D4C46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "IPAPI Tests/Info.plist";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
@@ -909,7 +925,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -930,7 +946,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -951,7 +967,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -973,7 +989,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -993,7 +1009,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1014,7 +1030,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1036,7 +1052,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1058,7 +1074,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IPAPI/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";

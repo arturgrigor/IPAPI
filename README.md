@@ -12,7 +12,7 @@ http://ip-api.com Geolocation API client written in Swift.
 
 - iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
 - Xcode 8.0+
-- Swift 3.0+
+- Swift 3.1+
 
 ## Installation
 
@@ -61,6 +61,18 @@ Then, run the following command:
 
 ```bash
 $ pod install
+```
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but IPAPI does support its use on supported platforms. 
+
+Once you have your Swift package set up, adding IPAPI as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .Package(url: "https://github.com/arturgrigor/IPAPI.git", majorVersion: 1)
+]
 ```
 
 ## Usage
