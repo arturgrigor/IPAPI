@@ -1,3 +1,4 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/arturgrigor/IPAPI.svg?branch=master)](https://travis-ci.org/arturgrigor/IPAPI)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IPAPI.svg)](https://img.shields.io/cocoapods/v/IPAPI.svg)
 [![Platform](https://img.shields.io/cocoapods/p/IPAPI.svg?style=flat)](http://cocoadocs.org/docsets/IPAPIIPAPI)
@@ -14,6 +15,25 @@ http://ip-api.com Geolocation API client written in Swift.
 - Swift 3.0+
 
 ## Installation
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate IPAPI into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "arturgrigor/IPAPI" ~> 1.1
+```
+
+Run `carthage update` to build the framework and drag the built `IPAPI.framework` into your Xcode project.
 
 ### CocoaPods
 
