@@ -341,7 +341,7 @@
 					};
 					FEE454001E0BE8DB00D8E707 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -527,7 +527,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Tests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -539,7 +538,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Tests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -560,7 +558,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.IPAPI-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -581,7 +578,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.IPAPI-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -639,7 +635,8 @@
 				SUPPORTED_PLATFORMS = "macosx appletvsimulator appletvos watchsimulator iphonesimulator watchos iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -693,7 +690,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SUPPORTED_PLATFORMS = "macosx appletvsimulator appletvos watchsimulator iphonesimulator watchos iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
