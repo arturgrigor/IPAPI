@@ -11,7 +11,7 @@
 //
 
 import XCTest
-import Mockingjay
+import OHHTTPStubs
 
 //
 //  # Class
@@ -25,12 +25,16 @@ class IPAPI_Tests: XCTestCase
     override func tearDown()
     {
         super.tearDown()
-        self.removeAllStubs()
+        OHHTTPStubs.removeAllStubs()
     }
     
     func testCurrentIPAddress()
     {
-        self.stub(urlString: "/json", jsonFileName: "currentIp")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/json"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("currentIp.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: Service.Result?
         var error: Error?
@@ -65,7 +69,11 @@ class IPAPI_Tests: XCTestCase
     
     func testApple()
     {
-        self.stub(urlString: "/json/apple.com", jsonFileName: "apple")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/json/apple.com"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("apple.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: Service.Result?
         var error: Error?
@@ -100,7 +108,11 @@ class IPAPI_Tests: XCTestCase
     
     func testAppleWithAllFields()
     {
-        self.stub(urlString: "/json/apple.com{?fields}", jsonFileName: "appleWithAllFields")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/json/apple.com"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("appleWithAllFields.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: Service.Result?
         var error: Error?
@@ -138,7 +150,11 @@ class IPAPI_Tests: XCTestCase
     
     func testAppleWithAllFieldsInSpanish()
     {
-        self.stub(urlString: "/json/apple.com{?fields&lang}", jsonFileName: "appleWithAllFieldsInSpanish")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/json/apple.com"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("appleWithAllFieldsInSpanish.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: Service.Result?
         var error: Error?
@@ -176,7 +192,11 @@ class IPAPI_Tests: XCTestCase
     
     func testBatch()
     {
-        self.stub(urlString: "/batch", jsonFileName: "batch")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/batch"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("batch.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: [Service.Result]?
         var error: Error?
@@ -225,7 +245,11 @@ class IPAPI_Tests: XCTestCase
     
     func testFailed()
     {
-        self.stub(urlString: "/json/failed.lookup", jsonFileName: "failed")
+        OHHTTPStubs.stubRequests(passingTest: { request in
+            request.url?.path == "/json/failed.lookup"
+        }) { _ in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile("failed.json", type(of: self))!, statusCode: 200, headers: [:])
+        }
         
         var result: Service.Result?
         var error: Error?
