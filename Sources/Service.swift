@@ -87,8 +87,8 @@ open class Service
         /// Zip code. Example: `"94043"`
         public var zipCode: String?
         
-        /// This is the field type used by the IPAPI service to filter out unnecessary data.
-        public enum CodingKeys: String, CodingKey {
+        /// This enum defines the property names used by the REST API.
+        public enum CodingKeys: String, CodingKey, Codable {
             /// AS number and name.
             case `as` = "as"
             /// City.
@@ -133,12 +133,12 @@ open class Service
             }
         }
         
-        /// This is the typical JSON type used by webservices.
+        /// This is the field type used by the IPAPI service to filter out unnecessary data.
         public typealias Field = CodingKeys
     }
     
     /// This is the request type used by the `batch` method.
-    public struct Request
+    public struct Request: Codable
     {
         /// The IP address to lookup. This parameter is required.
         public var query: String
@@ -146,6 +146,16 @@ open class Service
         public var fields: [Result.Field]? = nil
         /// Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format. This parameter is optional.
         public var language: String? = nil
+        
+        /// This enum defines the property names used by the REST API.
+        public enum CodingKeys: String, CodingKey {
+            /// Query.
+            case query
+            /// Fields.
+            case fields
+            /// Language.
+            case language = "lang"
+        }
         
         // MARK: - Initialization -
         
@@ -163,9 +173,6 @@ open class Service
             self.language = language
         }
     }
-    
-    /// This is the typical JSON type used by webservices.
-    public typealias JSON = [String: AnyObject]
     
     // MARK: - Constants -
     
@@ -279,7 +286,8 @@ open class Service
             return nil
         }
         
-        let body = queries.map { $0.toJSON() }
+        let encoder = JSONEncoder()
+        let body = queries.flatMap({ try? encoder.encode($0) }).flatMap({ String(data: $0, encoding: .utf8) })
         guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
             completion?(nil, Error.invalidRequestData)
             return nil
@@ -306,64 +314,6 @@ open class Service
         task.resume()
         
         return task
-    }
-    
-}
-
-//
-//  # Request: JSON Extension
-//
-
-public extension Service.Request
-{
-    
-    // MARK: - Types -
-    
-    fileprivate enum JSONKey: String
-    {
-        /// Query.
-        case query
-        /// Fields.
-        case fields
-        /// Language.
-        case language = "lang"
-    }
-    
-    // MARK: - Deserialization -
-    
-    /// Initializes the `Request` instance with a given JSON object.
-    ///
-    /// - Parameters:
-    ///   - json: The JSON object.
-    ///
-    /// - Returns: The new `Result` instance.
-    init?(json: Service.JSON)
-    {
-        if let query = json[Service.Request.JSONKey.query.rawValue] as? String {
-            self.query      = query
-            self.language   = json[Service.Request.JSONKey.language.rawValue] as? String
-            
-            if let string = json[Service.Request.JSONKey.fields.rawValue] as? String {
-                let fields = string.components(separatedBy: ",")
-                self.fields = fields.flatMap { Service.Result.Field(rawValue: $0) }
-            }
-        } else {
-            return nil
-        }
-    }
-    
-    // MARK: - Serialization -
-    
-    /// Serializes the object to the IPAPI format.
-    func toJSON() -> Service.JSON
-    {
-        var ret: Service.JSON = [:]
-        
-        ret[Service.Request.JSONKey.query.rawValue]     = self.query as AnyObject?
-        ret[Service.Request.JSONKey.fields.rawValue]    = self.fields?.map { $0.rawValue }.joined(separator: ",") as AnyObject?
-        ret[Service.Request.JSONKey.language.rawValue]  = self.language as AnyObject?
-        
-        return ret
     }
     
 }
