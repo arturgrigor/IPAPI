@@ -30,147 +30,111 @@ open class Service
     {
         /// Returned when the `URLComponents` structure fails to initialize, most likely because of the `query` parameter.
         case invalidURL
-        
         /// Return when the `URLComponents` structure fails to create a valid `URL`.
         case malformedURL
-        
         /// Returned when the request data is invalid.
         case invalidRequestData
-        
         /// Returned when the server response contained invalid data.
         case invalidResponseData
     }
     
     /// This is the status type returned by IPAPI.
-    public enum Status: String
+    public enum Status: String, Codable
     {
         /// Returned when the server is unable to process the request.
         case fail
-        
         /// Returned when the request has succeeded.
         case success
     }
     
-    /// This is the field type used by the IPAPI service to filter out unnecessary data.
-    public enum Field: String
-    {
-        /// AS number and name.
-        case `as` = "as"
-        
-        /// City.
-        case city
-        
-        /// Country code short.
-        case countryCode
-        
-        /// Country name.
-        case countryName = "country"
-        
-        /// IP.
-        case ip = "query"
-        
-        /// Internet Service Provider name.
-        case isp
-        
-        /// Latitude.
-        case latitude = "lat"
-        
-        /// Longitude.
-        case longitude = "lon"
-        
-        /// Error message.
-        case message
-        
-        /// Mobile (cellular) connection.
-        case mobile
-        
-        /// Organization name.
-        case organization = "org"
-        
-        /// Proxy (anonymous).
-        case proxy
-        
-        /// Region/State code short.
-        case regionCode = "region"
-        
-        /// Region/State name.
-        case regionName
-        
-        /// Reverse DNS of the IP.
-        case reverse
-        
-        /// Status.
-        case status
-        
-        /// Timezone.
-        case timezone
-        
-        /// Zip code.
-        case zipCode = "zip"
-        
-        /// Returns an `Array` with all the fields.
-        public static var all: [Field] {
-            return [.`as`, .city, .countryCode, .countryName, .ip, .isp, .latitude, .longitude, .message, .mobile,
-                    .organization, .proxy, .regionCode, .regionName, .reverse, .status, .timezone, .zipCode]
-        }
-    }
-    
     /// This is the result type returned by IPAPI.
-    public struct Result
+    public struct Result: Codable
     {
         /// AS number and name, separated by space. Example: `"AS15169 Google Inc."`
         public var `as`: String?
-        
         /// City. Example: `"Mountain View"`
         public var city: String?
-        
         /// Country code short. Example: `"US"`
         public var countryCode: String?
-        
         /// Country name. Example: `"United States"`
         public var countryName: String?
-        
         /// IP used for the query. Example: `"173.194.67.94"`
         public var ip: String?
-        
         /// Internet Service Provider name. Example: `"Google"`
         public var isp: String?
-        
         /// Latitude. Example: `37.4192`
         public var latitude: Double?
-        
         /// Longitude. Example: `-122.0574`
         public var longitude: Double?
-        
         /// Error message. Example: `"reserved range"`
         public var message: String?
-        
         /// Mobile (cellular) connection. Example: `true`
         public var mobile: Bool?
-        
         /// Organization name. Example: `"Google"`
         public var organization: String?
-        
         /// Proxy (anonymous). Example: `true`
         public var proxy: Bool?
-        
         /// Region/State code short. Example: `"CA"` or `"10"`
         public var regionCode: String?
-        
         /// Region/State name. Example: `"California"`
         public var regionName: String?
-        
         /// Reverse DNS of the IP. Example: `"wi-in-f94.1e100.net"`
         public var reverse: String?
-        
         /// Status. Example: `success`
         public var status: Status?
-        
         /// Timezone. Example: `"America/Los_Angeles"`
         public var timezone: String?
-        
         /// Zip code. Example: `"94043"`
         public var zipCode: String?
+        
+        /// This is the field type used by the IPAPI service to filter out unnecessary data.
+        public enum CodingKeys: String, CodingKey {
+            /// AS number and name.
+            case `as` = "as"
+            /// City.
+            case city
+            /// Country code short.
+            case countryCode
+            /// Country name.
+            case countryName = "country"
+            /// IP.
+            case ip = "query"
+            /// Internet Service Provider name.
+            case isp
+            /// Latitude.
+            case latitude = "lat"
+            /// Longitude.
+            case longitude = "lon"
+            /// Error message.
+            case message
+            /// Mobile (cellular) connection.
+            case mobile
+            /// Organization name.
+            case organization = "org"
+            /// Proxy (anonymous).
+            case proxy
+            /// Region/State code short.
+            case regionCode = "region"
+            /// Region/State name.
+            case regionName
+            /// Reverse DNS of the IP.
+            case reverse
+            /// Status.
+            case status
+            /// Timezone.
+            case timezone
+            /// Zip code.
+            case zipCode = "zip"
+            
+            /// Returns an `Array` with all the fields.
+            public static var all: [CodingKeys] {
+                return [.`as`, .city, .countryCode, .countryName, .ip, .isp, .latitude, .longitude, .message, .mobile,
+                        .organization, .proxy, .regionCode, .regionName, .reverse, .status, .timezone, .zipCode]
+            }
+        }
+        
+        /// This is the typical JSON type used by webservices.
+        public typealias Field = CodingKeys
     }
     
     /// This is the request type used by the `batch` method.
@@ -178,10 +142,8 @@ open class Service
     {
         /// The IP address to lookup. This parameter is required.
         public var query: String
-        
         /// If you don't require all the returned fields use this property to specify which fields to return. *Tip: Disabling* `reverse` *may improve performance*. This parameter is optional.
-        public var fields: [Field]? = nil
-        
+        public var fields: [Result.Field]? = nil
         /// Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format. This parameter is optional.
         public var language: String? = nil
         
@@ -195,7 +157,7 @@ open class Service
         ///   - language: The language to use for the city, region and country names.
         ///
         /// - Returns: The new `Request` instance.
-        init(query: String, fields: [Field]? = nil, language: String? = nil) {
+        init(query: String, fields: [Result.Field]? = nil, language: String? = nil) {
             self.query = query
             self.fields = fields
             self.language = language
@@ -247,7 +209,7 @@ open class Service
     ///   - language: Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func fetch(query: String? = nil, fields: [Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
+    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
     {
         var urlString = "\(type(of: self).baseURLString)/json"
         if let query = query {
@@ -283,8 +245,8 @@ open class Service
             if let error = error {
                 completion?(nil, error)
             } else {
-                if let data = data, let object = try? JSONSerialization.jsonObject(with: data, options: []), let json = object as? JSON {
-                    let result = Result(json: json)
+                let decoder = JSONDecoder()
+                if let data = data, let result = try? decoder.decode(Result.self, from: data) {
                     completion?(result, nil)
                 } else {
                     completion?(nil, Error.invalidResponseData)
@@ -333,8 +295,8 @@ open class Service
             if let error = error {
                 completion?(nil, error)
             } else {
-                if let data = data, let object = try? JSONSerialization.jsonObject(with: data, options: []), let json = object as? [JSON] {
-                    let result = json.flatMap { Result(json: $0) }
+                let decoder = JSONDecoder()
+                if let data = data, let result = try? decoder.decode([Result].self, from: data) {
                     completion?(result, nil)
                 } else {
                     completion?(nil, Error.invalidResponseData)
@@ -344,79 +306,6 @@ open class Service
         task.resume()
         
         return task
-    }
-    
-}
-
-//
-//  # Result: JSON Extension
-//
-
-public extension Service.Result
-{
-    
-    // MARK: - Deserialization -
-    
-    /// Initializes the `Result` instance with a given JSON object.
-    ///
-    /// - Parameters:
-    ///   - json: The JSON object.
-    ///
-    /// - Returns: The new `Result` instance.
-    init?(json: Service.JSON)
-    {
-        let statusString = json[Service.Field.status.rawValue] as? String
-        
-        self.`as`           = json[Service.Field.`as`.rawValue] as? String
-        self.city           = json[Service.Field.city.rawValue] as? String
-        self.countryCode    = json[Service.Field.countryCode.rawValue] as? String
-        self.countryName    = json[Service.Field.countryName.rawValue] as? String
-        self.ip             = json[Service.Field.ip.rawValue] as? String
-        self.isp            = json[Service.Field.isp.rawValue] as? String
-        self.latitude       = json[Service.Field.latitude.rawValue] as? Double
-        self.longitude      = json[Service.Field.longitude.rawValue] as? Double
-        self.message        = json[Service.Field.message.rawValue] as? String
-        self.mobile         = json[Service.Field.mobile.rawValue] as? Bool
-        self.organization   = json[Service.Field.organization.rawValue] as? String
-        self.proxy          = json[Service.Field.proxy.rawValue] as? Bool
-        self.regionCode     = json[Service.Field.regionCode.rawValue] as? String
-        self.regionName     = json[Service.Field.regionName.rawValue] as? String
-        self.reverse        = json[Service.Field.reverse.rawValue] as? String
-        self.timezone       = json[Service.Field.timezone.rawValue] as? String
-        self.zipCode        = json[Service.Field.zipCode.rawValue] as? String
-        
-        if let statusString = statusString {
-            self.status = Service.Status(rawValue: statusString)
-        }
-    }
-    
-    // MARK: - Serialization -
-    
-    /// Serializes the object to the IPAPI format.
-    func toJSON() -> Service.JSON
-    {
-        var ret: Service.JSON = [:]
-        
-        ret[Service.Field.`as`.rawValue]            = self.`as` as AnyObject?
-        ret[Service.Field.city.rawValue]            = self.city as AnyObject?
-        ret[Service.Field.countryCode.rawValue]     = self.countryCode as AnyObject?
-        ret[Service.Field.countryName.rawValue]     = self.countryName as AnyObject?
-        ret[Service.Field.ip.rawValue]              = self.ip as AnyObject?
-        ret[Service.Field.isp.rawValue]             = self.isp as AnyObject?
-        ret[Service.Field.latitude.rawValue]        = self.latitude as AnyObject?
-        ret[Service.Field.longitude.rawValue]       = self.longitude as AnyObject?
-        ret[Service.Field.message.rawValue]         = self.message as AnyObject?
-        ret[Service.Field.mobile.rawValue]          = self.mobile as AnyObject?
-        ret[Service.Field.organization.rawValue]    = self.organization as AnyObject?
-        ret[Service.Field.proxy.rawValue]           = self.proxy as AnyObject?
-        ret[Service.Field.regionCode.rawValue]      = self.regionCode as AnyObject?
-        ret[Service.Field.regionName.rawValue]      = self.regionName as AnyObject?
-        ret[Service.Field.reverse.rawValue]         = self.reverse as AnyObject?
-        ret[Service.Field.status.rawValue]          = self.status as AnyObject?
-        ret[Service.Field.timezone.rawValue]        = self.timezone as AnyObject?
-        ret[Service.Field.zipCode.rawValue]         = self.zipCode as AnyObject?
-        
-        return ret
     }
     
 }
@@ -434,10 +323,8 @@ public extension Service.Request
     {
         /// Query.
         case query
-        
         /// Fields.
         case fields
-        
         /// Language.
         case language = "lang"
     }
@@ -458,7 +345,7 @@ public extension Service.Request
             
             if let string = json[Service.Request.JSONKey.fields.rawValue] as? String {
                 let fields = string.components(separatedBy: ",")
-                self.fields = fields.flatMap { Service.Field(rawValue: $0) }
+                self.fields = fields.flatMap { Service.Result.Field(rawValue: $0) }
             }
         } else {
             return nil
@@ -477,20 +364,6 @@ public extension Service.Request
         ret[Service.Request.JSONKey.language.rawValue]  = self.language as AnyObject?
         
         return ret
-    }
-    
-}
-
-//
-//  # Debug Extension
-//
-
-public extension Service.Result
-{
-    
-    /// The textual representation of the receiver, in the form of JSON.
-    var description: String {
-        return self.toJSON().description
     }
     
 }

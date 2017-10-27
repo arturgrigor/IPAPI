@@ -118,7 +118,7 @@ class IPAPI_Tests: XCTestCase
         var error: Error?
         let responseArrived = self.expectation(description: "Response of async request has arrived")
         
-        Service.default.fetch(query: "apple.com", fields: Service.Field.all) { r, e in
+        Service.default.fetch(query: "apple.com", fields: Service.Result.Field.all) { r, e in
             result = r
             error = e
             responseArrived.fulfill()
@@ -160,7 +160,7 @@ class IPAPI_Tests: XCTestCase
         var error: Error?
         let responseArrived = self.expectation(description: "Response of async request has arrived")
         
-        Service.default.fetch(query: "apple.com", fields: Service.Field.all, language: "es") { r, e in
+        Service.default.fetch(query: "apple.com", fields: Service.Result.Field.all, language: "es") { r, e in
             result = r
             error = e
             responseArrived.fulfill()
