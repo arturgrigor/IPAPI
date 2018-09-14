@@ -6,10 +6,6 @@
 //  Copyright © 2016 Artur Grigor. All rights reserved.
 //
 
-//
-//  # Imports
-//
-
 import Foundation
 
 //
@@ -20,14 +16,12 @@ import Foundation
 ///
 /// Our system will automatically ban any IP addresses doing over 150 requests per minute. To unban your IP click [here](http://ip-api.com/docs/unban).
 /// You are free to use ip-api.com for non-commercial use. **We do not allow commercial use without prior approval**.
-open class Service
-{
+open class Service {
     
     // MARK: - Types -
     
     /// This is the error type returned by IPAPI.
-    public enum Error: Swift.Error
-    {
+    public enum Error: Swift.Error {
         /// Returned when the `URLComponents` structure fails to initialize, most likely because of the `query` parameter.
         case invalidURL
         /// Return when the `URLComponents` structure fails to create a valid `URL`.
@@ -39,8 +33,7 @@ open class Service
     }
     
     /// This is the status type returned by IPAPI.
-    public enum Status: String, Codable
-    {
+    public enum Status: String, Codable {
         /// Returned when the server is unable to process the request.
         case fail
         /// Returned when the request has succeeded.
@@ -48,8 +41,7 @@ open class Service
     }
     
     /// This is the result type returned by IPAPI.
-    public struct Result: Codable
-    {
+    public struct Result: Codable {
         /// AS number and name, separated by space. Example: `"AS15169 Google Inc."`
         public var `as`: String?
         /// City. Example: `"Mountain View"`
@@ -138,8 +130,7 @@ open class Service
     }
     
     /// This is the request type used by the `batch` method.
-    public struct Request: Codable
-    {
+    public struct Request: Codable {
         /// The IP address to lookup. This parameter is required.
         public var query: String
         /// If you don't require all the returned fields use this property to specify which fields to return. *Tip: Disabling* `reverse` *may improve performance*. This parameter is optional.
@@ -190,7 +181,7 @@ open class Service
     // MARK: - Initialization -
     
     /// The default instance of `Service` initialized with default values.
-    open static let `default` = Service()
+    public static let `default` = Service()
     
     /// Initializes the `Service` instance with the given timeout interval.
     ///
@@ -200,8 +191,7 @@ open class Service
     ///
     /// - Returns: The new `Service` instance.
     public init(timeoutInterval: TimeInterval = 15,
-                configuration: URLSessionConfiguration = URLSessionConfiguration.default)
-    {
+                configuration: URLSessionConfiguration = URLSessionConfiguration.default) {
         self.timeoutInterval = timeoutInterval
         self.configuration = configuration
     }
@@ -216,8 +206,7 @@ open class Service
     ///   - language: Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
-    {
+    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask? {
         var urlString = "\(type(of: self).baseURLString)/json"
         if let query = query {
             urlString += "/\(query)"
@@ -273,8 +262,7 @@ open class Service
     ///   - queries: The requests.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func batch(_ queries: [Request], completion: ((_ result: [Result]?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask?
-    {
+    @discardableResult open func batch(_ queries: [Request], completion: ((_ result: [Result]?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask? {
         let urlString = "\(type(of: self).baseURLString)/batch"
         guard let urlComponents = URLComponents(string: urlString) else {
             completion?(nil, Error.invalidURL)
@@ -287,7 +275,7 @@ open class Service
         }
         
         let encoder = JSONEncoder()
-        let body = queries.flatMap({ try? encoder.encode($0) }).flatMap({ String(data: $0, encoding: .utf8) })
+        let body = queries.compactMap({ try? encoder.encode($0) }).compactMap({ String(data: $0, encoding: .utf8) })
         guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
             completion?(nil, Error.invalidRequestData)
             return nil

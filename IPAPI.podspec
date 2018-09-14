@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'IPAPI'
-  s.version = '1.2.0'
+  s.version = '1.3.0'
   s.license = 'MIT'
   s.summary = 'http://ip-api.com Geolocation API client written in Swift.'
   s.homepage = 'https://github.com/arturgrigor/IPAPI'
