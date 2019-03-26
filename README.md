@@ -11,8 +11,8 @@ http://ip-api.com Geolocation API client written in Swift.
 ## Requirements
 
 - iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 10.0+
-- Swift 4.2+
+- Xcode 10.2+
+- Swift 5.0+
 
 ## Installation
 
@@ -30,7 +30,7 @@ $ brew install carthage
 To integrate IPAPI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "arturgrigor/IPAPI" ~> 1.3
+github "arturgrigor/IPAPI" ~> 2.0
 ```
 
 Run `carthage update` to build the framework and drag the built `IPAPI.framework` into your Xcode project.
@@ -53,7 +53,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'IPAPI', '~> 1.3'
+    pod 'IPAPI', '~> 2.0'
 end
 ```
 
@@ -71,7 +71,7 @@ Once you have your Swift package set up, adding IPAPI as a dependency is as easy
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/arturgrigor/IPAPI.git", majorVersion: 1)
+    .Package(url: "https://github.com/arturgrigor/IPAPI.git", majorVersion: 2)
 ]
 ```
 
