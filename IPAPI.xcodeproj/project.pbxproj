@@ -721,6 +721,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = IPAPI;
 				SKIP_INSTALL = YES;
@@ -738,6 +739,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = IPAPI;
 				SKIP_INSTALL = YES;
