@@ -20,6 +20,14 @@ open class Service {
     
     // MARK: - Types -
     
+    /// Pricing plans.
+    public enum PricingPlan {
+        /// Free. Doesn't support HTTPS.
+        case free
+        /// Paid. Supports HTTPS, but you need to provide an API Key. More details [here](https://members.ip-api.com).
+        case pro(apiKey: String)
+    }
+    
     /// This is the error type returned by IPAPI.
     public enum Error: Swift.Error {
         /// Returned when the `URLComponents` structure fails to initialize, most likely because of the `query` parameter.
@@ -165,12 +173,10 @@ open class Service {
         }
     }
     
-    // MARK: - Constants -
-    
-    /// The base URL string for the webservice.
-    static let baseURLString = "https://ip-api.com"
-    
     // MARK: - Properties -
+    
+    /// Returns the pricing plan of the receiver.
+    open var pricingPlan: PricingPlan
     
     /// Returns the timeout interval of the receiver.
     open var timeoutInterval: TimeInterval
@@ -186,12 +192,17 @@ open class Service {
     /// Initializes the `Service` instance with the given timeout interval.
     ///
     /// - Parameters:
+    ///   - pricingPlan: The pricing plan.
     ///   - timeoutInterval: The timeout interval.
     ///   - configuration: The session configuration.
     ///
     /// - Returns: The new `Service` instance.
-    public init(timeoutInterval: TimeInterval = 15,
-                configuration: URLSessionConfiguration = URLSessionConfiguration.default) {
+    public init(
+        pricingPlan: PricingPlan = .free,
+        timeoutInterval: TimeInterval = 15,
+        configuration: URLSessionConfiguration = URLSessionConfiguration.default
+    ) {
+        self.pricingPlan = pricingPlan
         self.timeoutInterval = timeoutInterval
         self.configuration = configuration
     }
@@ -206,24 +217,27 @@ open class Service {
     ///   - language: Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((Swift.Result<Result, Swift.Error>) -> Void)?) -> URLSessionDataTask? {
-        var urlString = "\(Self.baseURLString)/json"
-        if let query = query {
-            urlString += "/\(query)"
-        }
-        
-        guard var urlComponents = URLComponents(string: urlString) else {
-            completion?(.failure(Error.invalidURL))
+    @discardableResult
+    open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((Swift.Result<Result, Swift.Error>) -> Void)?) -> URLSessionDataTask? {
+        var urlComponents: URLComponents
+        do {
+            let pathQuery = query ?? ""
+            urlComponents = try self.urlComponents(path: "json/\(pathQuery)")
+        } catch {
+            completion?(.failure(error))
             return nil
         }
-        
+                
         var queryItems: [URLQueryItem] = []
         
-        if let fields = fields {
-            queryItems.append(URLQueryItem(name: "fields", value: fields.map({ $0.rawValue }).joined(separator: ",")))
+        if let value = fields {
+            queryItems.append(URLQueryItem(name: "fields", value: value.map({ $0.rawValue }).joined(separator: ",")))
         }
-        if let language = language {
-            queryItems.append(URLQueryItem(name: "lang", value: language))
+        if let value = language {
+            queryItems.append(URLQueryItem(name: "lang", value: value))
+        }
+        if case PricingPlan.pro(let apiKey) = self.pricingPlan {
+            queryItems.append(URLQueryItem(name: "key", value: apiKey))
         }
         
         urlComponents.queryItems = queryItems
@@ -262,12 +276,23 @@ open class Service {
     ///   - queries: The requests.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func batch(_ queries: [Request], completion: ((Swift.Result<[Result], Swift.Error>) -> Void)?) -> URLSessionDataTask? {
-        let urlString = "\(type(of: self).baseURLString)/batch"
-        guard let urlComponents = URLComponents(string: urlString) else {
-            completion?(.failure(Error.invalidURL))
+    @discardableResult
+    open func batch(_ queries: [Request], completion: ((Swift.Result<[Result], Swift.Error>) -> Void)?) -> URLSessionDataTask? {
+        var urlComponents: URLComponents
+        do {
+            urlComponents = try self.urlComponents(path: "batch")
+        } catch {
+            completion?(.failure(error))
             return nil
         }
+        
+        var queryItems: [URLQueryItem] = []
+        
+        if case PricingPlan.pro(let apiKey) = self.pricingPlan {
+            queryItems.append(URLQueryItem(name: "key", value: apiKey))
+        }
+        
+        urlComponents.queryItems = queryItems
         
         guard let url = urlComponents.url else {
             completion?(.failure(Error.malformedURL))
@@ -302,6 +327,25 @@ open class Service {
         task.resume()
         
         return task
+    }
+    
+    /// Returns the URL components for a given API path.
+    /// - Parameter path: API path.
+    /// - Throws: `Error`
+    private func urlComponents(path: String) throws -> URLComponents {
+        let baseDomain = "ip-api.com"
+        let baseURL: String
+        switch self.pricingPlan {
+            case .free: baseURL = "http://\(baseDomain)"
+            case .pro: baseURL = "https://pro.\(baseDomain)"
+        }
+        
+        let urlString = "\(baseURL)/\(path)"
+        guard let urlComponents = URLComponents(string: urlString) else {
+            throw Error.invalidURL
+        }
+        
+        return urlComponents
     }
     
 }

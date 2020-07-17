@@ -84,10 +84,10 @@ dependencies: [
 import IPAPI
 
 IPAPI.Service.default.fetch {
-            if let result = try? $0.get() {
-                print("Geo IP result \(result).")
-            }
-        }
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
 ```
 
 ### 🔍 Lookup a domain ###
@@ -96,10 +96,10 @@ IPAPI.Service.default.fetch {
 import IPAPI
 
 Service.default.fetch(query: "apple.com") {
-            if let result = try? $0.get() {
-                print("Geo IP result \(result).")
-            }
-        }
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
 ```
 
 ### ✂️ Ask only for some specific fields ###
@@ -108,10 +108,10 @@ Service.default.fetch(query: "apple.com") {
 import IPAPI
 
 Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) {
-            if let result = try? $0.get() {
-                print("Geo IP result \(result).")
-            }
-        }
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
 ```
 
 ### 🇷🇴 Localization ###
@@ -120,10 +120,10 @@ Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) {
 import IPAPI
 
 Service.default.fetch(language: "es") {
-            if let result = try? $0.get() {
-                print("Geo IP result \(result).")
-            }
-        }
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
 ```
 *Checkout this [page](http://ip-api.com/docs/api:returned_values) for the available languages.
 
@@ -134,11 +134,25 @@ import IPAPI
 
 Service.default.batch([Service.Request(query: "208.80.152.201",
                                        fields: [.countryName, .countryCode, .latitude, .longitude, .organization, .ip]),
-                       Service.Request(query: "91.198.174.192", language: "es")]) { result, error in
-            if let result = result {
-                print("Geo IP result \(result).")
-            }
-        }
+                       Service.Request(query: "91.198.174.192", language: "es")]) {
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
+```
+
+### 🔒 HTTPS requests ###
+
+In order to use the API via HTTPS you must register for the ["Pro" plan](https://members.ip-api.com) to get an API key. After you've done that you can set the API key like this and all your requests will use HTTPS. 
+
+```swift
+import IPAPI
+
+IPAPI.Service(pricingPlan: .pro(apiKey: "test-demo-pro")).fetch {
+    if let result = try? $0.get() {
+        print("Geo IP result \(result).")
+    }
+}
 ```
 
 # Contact
