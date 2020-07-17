@@ -31,7 +31,7 @@ $ brew install carthage
 To integrate IPAPI into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "arturgrigor/IPAPI" ~> 2.1
+github "arturgrigor/IPAPI" ~> 3.0
 ```
 
 Run `carthage update` to build the framework and drag the built `IPAPI.framework` into your Xcode project.
@@ -54,7 +54,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'IPAPI', '~> 2.1'
+    pod 'IPAPI', '~> 3.0'
 end
 ```
 
@@ -72,7 +72,7 @@ Once you have your Swift package set up, adding IPAPI as a dependency is as easy
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/arturgrigor/IPAPI.git", majorVersion: 2)
+    .Package(url: "https://github.com/arturgrigor/IPAPI.git", majorVersion: 3)
 ]
 ```
 
@@ -83,8 +83,8 @@ dependencies: [
 ```swift
 import IPAPI
 
-IPAPI.Service.default.fetch { result, error in
-            if let result = result {
+IPAPI.Service.default.fetch {
+            if let result = try? $0.get() {
                 print("Geo IP result \(result).")
             }
         }
@@ -95,8 +95,8 @@ IPAPI.Service.default.fetch { result, error in
 ```swift
 import IPAPI
 
-Service.default.fetch(query: "apple.com") { result, error in
-            if let result = result {
+Service.default.fetch(query: "apple.com") {
+            if let result = try? $0.get() {
                 print("Geo IP result \(result).")
             }
         }
@@ -107,8 +107,8 @@ Service.default.fetch(query: "apple.com") { result, error in
 ```swift
 import IPAPI
 
-Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) { result, error in
-            if let result = result {
+Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) {
+            if let result = try? $0.get() {
                 print("Geo IP result \(result).")
             }
         }
@@ -119,8 +119,8 @@ Service.default.fetch(fields: [.ip, .latitude, .longitude, .organization]) { res
 ```swift
 import IPAPI
 
-Service.default.fetch(language: "es") { result, error in
-            if let result = result {
+Service.default.fetch(language: "es") {
+            if let result = try? $0.get() {
                 print("Geo IP result \(result).")
             }
         }

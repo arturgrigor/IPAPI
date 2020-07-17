@@ -43,41 +43,41 @@ open class Service {
     /// This is the result type returned by IPAPI.
     public struct Result: Codable {
         /// AS number and name, separated by space. Example: `"AS15169 Google Inc."`
-        public var `as`: String?
+        public let `as`: String?
         /// City. Example: `"Mountain View"`
-        public var city: String?
+        public let city: String?
         /// Country code short. Example: `"US"`
-        public var countryCode: String?
+        public let countryCode: String?
         /// Country name. Example: `"United States"`
-        public var countryName: String?
+        public let countryName: String?
         /// IP used for the query. Example: `"173.194.67.94"`
-        public var ip: String?
+        public let ip: String?
         /// Internet Service Provider name. Example: `"Google"`
-        public var isp: String?
+        public let isp: String?
         /// Latitude. Example: `37.4192`
-        public var latitude: Double?
+        public let latitude: Double?
         /// Longitude. Example: `-122.0574`
-        public var longitude: Double?
+        public let longitude: Double?
         /// Error message. Example: `"reserved range"`
-        public var message: String?
+        public let message: String?
         /// Mobile (cellular) connection. Example: `true`
-        public var mobile: Bool?
+        public let mobile: Bool?
         /// Organization name. Example: `"Google"`
-        public var organization: String?
+        public let organization: String?
         /// Proxy (anonymous). Example: `true`
-        public var proxy: Bool?
+        public let proxy: Bool?
         /// Region/State code short. Example: `"CA"` or `"10"`
-        public var regionCode: String?
+        public let regionCode: String?
         /// Region/State name. Example: `"California"`
-        public var regionName: String?
+        public let regionName: String?
         /// Reverse DNS of the IP. Example: `"wi-in-f94.1e100.net"`
-        public var reverse: String?
+        public let reverse: String?
         /// Status. Example: `success`
-        public var status: Status?
+        public let status: Status?
         /// Timezone. Example: `"America/Los_Angeles"`
-        public var timezone: String?
+        public let timezone: String?
         /// Zip code. Example: `"94043"`
-        public var zipCode: String?
+        public let zipCode: String?
         
         /// This enum defines the property names used by the REST API.
         public enum CodingKeys: String, CodingKey, Codable {
@@ -168,7 +168,7 @@ open class Service {
     // MARK: - Constants -
     
     /// The base URL string for the webservice.
-    static let baseURLString = "http://ip-api.com"
+    static let baseURLString = "https://ip-api.com"
     
     // MARK: - Properties -
     
@@ -206,14 +206,14 @@ open class Service {
     ///   - language: Localized `city`, `regionName` and `countryName` can be requested by using this property in the `ISO 639` format.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((_ result: Result?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask? {
-        var urlString = "\(type(of: self).baseURLString)/json"
+    @discardableResult open func fetch(query: String? = nil, fields: [Result.Field]? = nil, language: String? = nil, completion: ((Swift.Result<Result, Swift.Error>) -> Void)?) -> URLSessionDataTask? {
+        var urlString = "\(Self.baseURLString)/json"
         if let query = query {
             urlString += "/\(query)"
         }
         
         guard var urlComponents = URLComponents(string: urlString) else {
-            completion?(nil, Error.invalidURL)
+            completion?(.failure(Error.invalidURL))
             return nil
         }
         
@@ -229,7 +229,7 @@ open class Service {
         urlComponents.queryItems = queryItems
         
         guard let url = urlComponents.url else {
-            completion?(nil, Error.malformedURL)
+            completion?(.failure(Error.malformedURL))
             return nil
         }
         
@@ -239,13 +239,13 @@ open class Service {
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             if let error = error {
-                completion?(nil, error)
+                completion?(.failure(error))
             } else {
                 let decoder = JSONDecoder()
                 if let data = data, let result = try? decoder.decode(Result.self, from: data) {
-                    completion?(result, nil)
+                    completion?(.success(result))
                 } else {
-                    completion?(nil, Error.invalidResponseData)
+                    completion?(.failure(Error.invalidResponseData))
                 }
             }
         })
@@ -262,22 +262,22 @@ open class Service {
     ///   - queries: The requests.
     ///   - completion: A closure that will be called upon completion.
     /// - Returns: The new `URLSessionDataTask` instance.
-    @discardableResult open func batch(_ queries: [Request], completion: ((_ result: [Result]?, _ error: Swift.Error?) -> Void)?) -> URLSessionDataTask? {
+    @discardableResult open func batch(_ queries: [Request], completion: ((Swift.Result<[Result], Swift.Error>) -> Void)?) -> URLSessionDataTask? {
         let urlString = "\(type(of: self).baseURLString)/batch"
         guard let urlComponents = URLComponents(string: urlString) else {
-            completion?(nil, Error.invalidURL)
+            completion?(.failure(Error.invalidURL))
             return nil
         }
         
         guard let url = urlComponents.url else {
-            completion?(nil, Error.malformedURL)
+            completion?(.failure(Error.malformedURL))
             return nil
         }
         
         let encoder = JSONEncoder()
         let body = queries.compactMap({ try? encoder.encode($0) }).compactMap({ String(data: $0, encoding: .utf8) })
         guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: []) else {
-            completion?(nil, Error.invalidRequestData)
+            completion?(.failure(Error.invalidRequestData))
             return nil
         }
         
@@ -289,13 +289,13 @@ open class Service {
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             if let error = error {
-                completion?(nil, error)
+                completion?(.failure(error))
             } else {
                 let decoder = JSONDecoder()
                 if let data = data, let result = try? decoder.decode([Result].self, from: data) {
-                    completion?(result, nil)
+                    completion?(.success(result))
                 } else {
-                    completion?(nil, Error.invalidResponseData)
+                    completion?(.failure(Error.invalidResponseData))
                 }
             }
         })
