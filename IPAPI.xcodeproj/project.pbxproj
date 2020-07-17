@@ -18,6 +18,13 @@
 		FE9761911E8FBBE9006F1F9D /* currentIp.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761751E8FBB52006F1F9D /* currentIp.json */; };
 		FE9761921E8FBBE9006F1F9D /* failed.json in Resources */ = {isa = PBXBuildFile; fileRef = FE9761761E8FBB52006F1F9D /* failed.json */; };
 		FE97619F1E8FBBF9006F1F9D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97616E1E8FBB52006F1F9D /* Service.swift */; };
+		FEC7F9AF24C1864C0041307F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7F9AE24C1864C0041307F /* AppDelegate.swift */; };
+		FEC7F9B124C1864C0041307F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7F9B024C1864C0041307F /* SceneDelegate.swift */; };
+		FEC7F9B324C1864C0041307F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7F9B224C1864C0041307F /* ContentView.swift */; };
+		FEC7F9B524C1864E0041307F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC7F9B424C1864E0041307F /* Assets.xcassets */; };
+		FEC7F9B824C1864E0041307F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC7F9B724C1864E0041307F /* Preview Assets.xcassets */; };
+		FEC7F9BB24C1864E0041307F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC7F9B924C1864E0041307F /* LaunchScreen.storyboard */; };
+		FEC7F9C224C187110041307F /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454011E0BE8DB00D8E707 /* IPAPI.framework */; };
 		FEDFDB431FA39F7A00607D1A /* IPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE454011E0BE8DB00D8E707 /* IPAPI.framework */; };
 		FEDFDB491FA39F8700607D1A /* IPAPI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */; };
 		FEDFDB501FA39FB700607D1A /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDFDB2F1FA39F0E00607D1A /* OHHTTPStubs.framework */; };
@@ -38,6 +45,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FEE454001E0BE8DB00D8E707;
 			remoteInfo = "IPAPI iOS";
+		};
+		FEC7F9C024C1870D0041307F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE453F81E0BE8DB00D8E707 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEE454001E0BE8DB00D8E707;
+			remoteInfo = IPAPI;
 		};
 		FEDFDB261FA39F0E00607D1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -136,6 +150,14 @@
 		FE9761771E8FBB52006F1F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE9761781E8FBB52006F1F9D /* IPAPI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAPI_Tests.swift; sourceTree = "<group>"; };
 		FE9761A21E8FBD45006F1F9D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		FEC7F9AC24C1864C0041307F /* Demo iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC7F9AE24C1864C0041307F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEC7F9B024C1864C0041307F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FEC7F9B224C1864C0041307F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEC7F9B424C1864E0041307F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEC7F9B724C1864E0041307F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FEC7F9BA24C1864E0041307F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FEC7F9BC24C1864E0041307F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEDFDB1A1FA39DA800607D1A /* Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FEDFDB1B1FA39F0E00607D1A /* OHHTTPStubs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OHHTTPStubs.xcodeproj; path = Carthage/Checkouts/OHHTTPStubs/OHHTTPStubs/OHHTTPStubs.xcodeproj; sourceTree = SOURCE_ROOT; };
 		FEDFDB3E1FA39F7A00607D1A /* IPAPI macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IPAPI macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +172,14 @@
 			files = (
 				FEDFDB531FA3A0EA00607D1A /* OHHTTPStubs.framework in Frameworks */,
 				FE576B271E0C99E5009D4C46 /* IPAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEC7F9A924C1864C0041307F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEC7F9C224C187110041307F /* IPAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +237,28 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
+		FEC7F9AD24C1864C0041307F /* Demo iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FEC7F9AE24C1864C0041307F /* AppDelegate.swift */,
+				FEC7F9B024C1864C0041307F /* SceneDelegate.swift */,
+				FEC7F9B224C1864C0041307F /* ContentView.swift */,
+				FEC7F9B424C1864E0041307F /* Assets.xcassets */,
+				FEC7F9B924C1864E0041307F /* LaunchScreen.storyboard */,
+				FEC7F9BC24C1864E0041307F /* Info.plist */,
+				FEC7F9B624C1864E0041307F /* Preview Content */,
+			);
+			path = "Demo iOS";
+			sourceTree = "<group>";
+		};
+		FEC7F9B624C1864E0041307F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FEC7F9B724C1864E0041307F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		FEDFDB1C1FA39F0E00607D1A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +292,7 @@
 				FE7C0C9C1E0CB16D00620172 /* README.md */,
 				FE97616B1E8FBB52006F1F9D /* Sources */,
 				FE97616F1E8FBB52006F1F9D /* Tests */,
+				FEC7F9AD24C1864C0041307F /* Demo iOS */,
 				FEE454021E0BE8DB00D8E707 /* Products */,
 				FEDFDB381FA39F4300607D1A /* Frameworks */,
 			);
@@ -251,6 +304,7 @@
 				FEE454011E0BE8DB00D8E707 /* IPAPI.framework */,
 				FE576B221E0C99E5009D4C46 /* IPAPI Tests.xctest */,
 				FEDFDB3E1FA39F7A00607D1A /* IPAPI macOS Tests.xctest */,
+				FEC7F9AC24C1864C0041307F /* Demo iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,6 +341,24 @@
 			productName = "IPAPI iOS Tests";
 			productReference = FE576B221E0C99E5009D4C46 /* IPAPI Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FEC7F9AB24C1864C0041307F /* Demo iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEC7F9BD24C1864E0041307F /* Build configuration list for PBXNativeTarget "Demo iOS" */;
+			buildPhases = (
+				FEC7F9A824C1864C0041307F /* Sources */,
+				FEC7F9A924C1864C0041307F /* Frameworks */,
+				FEC7F9AA24C1864C0041307F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEC7F9C124C1870D0041307F /* PBXTargetDependency */,
+			);
+			name = "Demo iOS";
+			productName = "Demo iOS";
+			productReference = FEC7F9AC24C1864C0041307F /* Demo iOS.app */;
+			productType = "com.apple.product-type.application";
 		};
 		FEDFDB3D1FA39F7A00607D1A /* IPAPI macOS Tests */ = {
 			isa = PBXNativeTarget;
@@ -331,12 +403,16 @@
 		FEE453F81E0BE8DB00D8E707 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Artur Grigor";
 				TargetAttributes = {
 					FE576B211E0C99E5009D4C46 = {
 						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					FEC7F9AB24C1864C0041307F = {
+						CreatedOnToolsVersion = 11.6;
 						ProvisioningStyle = Automatic;
 					};
 					FEDFDB3D1FA39F7A00607D1A = {
@@ -373,6 +449,7 @@
 				FEE454001E0BE8DB00D8E707 /* IPAPI */,
 				FE576B211E0C99E5009D4C46 /* IPAPI iOS Tests */,
 				FEDFDB3D1FA39F7A00607D1A /* IPAPI macOS Tests */,
+				FEC7F9AB24C1864C0041307F /* Demo iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -450,6 +527,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FEC7F9AA24C1864C0041307F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEC7F9BB24C1864E0041307F /* LaunchScreen.storyboard in Resources */,
+				FEC7F9B824C1864E0041307F /* Preview Assets.xcassets in Resources */,
+				FEC7F9B524C1864E0041307F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEDFDB3C1FA39F7A00607D1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,6 +569,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FEC7F9A824C1864C0041307F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEC7F9AF24C1864C0041307F /* AppDelegate.swift in Sources */,
+				FEC7F9B124C1864C0041307F /* SceneDelegate.swift in Sources */,
+				FEC7F9B324C1864C0041307F /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FEDFDB3A1FA39F7A00607D1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -507,6 +604,11 @@
 			target = FEE454001E0BE8DB00D8E707 /* IPAPI */;
 			targetProxy = FE576B281E0C99E5009D4C46 /* PBXContainerItemProxy */;
 		};
+		FEC7F9C124C1870D0041307F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEE454001E0BE8DB00D8E707 /* IPAPI */;
+			targetProxy = FEC7F9C024C1870D0041307F /* PBXContainerItemProxy */;
+		};
 		FEDFDB451FA39F7A00607D1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FEE454001E0BE8DB00D8E707 /* IPAPI */;
@@ -523,6 +625,17 @@
 			targetProxy = FEDFDB511FA3A0E400607D1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FEC7F9B924C1864E0041307F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEC7F9BA24C1864E0041307F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FE576B2B1E0C99E5009D4C46 /* Debug */ = {
@@ -544,6 +657,58 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "IPAPI Tests";
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Tests-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		FEC7F9BE24C1864E0041307F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Demo iOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Demo iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.Demo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEC7F9BF24C1864E0041307F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Demo iOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Demo iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.Demo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -616,7 +781,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.2.0;
+				CURRENT_PROJECT_VERSION = 3.0.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -682,7 +847,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.2.0;
+				CURRENT_PROJECT_VERSION = 3.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -721,7 +886,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = IPAPI;
 				SKIP_INSTALL = YES;
@@ -739,7 +904,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.arturgrigor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = IPAPI;
 				SKIP_INSTALL = YES;
@@ -754,6 +919,15 @@
 			buildConfigurations = (
 				FE576B2B1E0C99E5009D4C46 /* Debug */,
 				FE576B2C1E0C99E5009D4C46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEC7F9BD24C1864E0041307F /* Build configuration list for PBXNativeTarget "Demo iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEC7F9BE24C1864E0041307F /* Debug */,
+				FEC7F9BF24C1864E0041307F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
